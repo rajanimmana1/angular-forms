@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserSettings } from './userSettings';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -10,6 +10,10 @@ import { HttpClient } from '@angular/common/http';
 export class DataService {
 
   constructor(private http:HttpClient) { }
+
+  getSubscriptionTypes():Observable<string[]>{
+    return of(['monthly','yearly','lifetime']);
+  }
 
   postUserSettings(userSettings:UserSettings): Observable<any>{
 

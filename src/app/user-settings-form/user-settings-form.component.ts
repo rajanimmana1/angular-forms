@@ -3,6 +3,7 @@ import { UserSettings } from '../data/userSettings';
 import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms';
 import { DataService } from '../data/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -22,9 +23,12 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
 
   postError = false;
   postErrorMessage = '';
+  subscriptionTypes: Observable<string[]>;
+
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
+   this.subscriptionTypes = this.dataService.getSubscriptionTypes();
   }
 
   onHttpError(errorResponse:any){
