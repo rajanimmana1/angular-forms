@@ -3,7 +3,7 @@
       <form #form="ngForm" (ngSubmit)='onSubmit(form)'> 
         <div class="form-group">
           <label for="name">Name</label>
-          <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required  #userClass="ngModel"[class.field-error]="form.submitted || userClass.invalid"   (blur)="onBlur(userClass)" />
+          <input id="name" name="name" class="form-control" [(ngModel)]="userSettings.name" required  #userClass="ngModel"[class.field-error]="userClass.touched && userClass.invalid"   (blur)="onBlur(userClass)" />
           <div [hidden]="!form.submitted || userClass.valid"  class="alert alert-danger">enter a name</div>
 
         </div>
