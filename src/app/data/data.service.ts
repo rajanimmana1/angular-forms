@@ -13,7 +13,7 @@ export class DataService {
 
   postUserSettings(userSettings:UserSettings): Observable<any>{
 
-    this.http.post('url',userSettings)
+    this.http.post('https://putsreq.com/OErLV91uZtonb2TtJjIX',userSettings)
     //return of(userSettings);
   }
 }

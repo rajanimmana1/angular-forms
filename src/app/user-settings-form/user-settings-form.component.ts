@@ -24,7 +24,7 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
   ngOnInit() {
   }
 
-  onBlur(field:ngModel){
+  onBlur(field:NgModel){
     console.log('on blur:', field.valid)
   }
 
