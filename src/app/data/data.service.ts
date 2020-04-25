@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { UserSettings } from '../data/userSettings';
-import { Observable, of } from 'rxjs';
+import { UserSettings } from './userSettings';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -13,7 +13,7 @@ export class DataService {
 
   postUserSettings(userSettings:UserSettings): Observable<any>{
 
-    this.http.post('https://putsreq.com/OErLV91uZtonb2TtJjIX',userSettings)
+   return this.http.post('https://putsreq.com/OErLV91uZtonb2TtJjIX',userSettings);
     //return of(userSettings);
   }
 }

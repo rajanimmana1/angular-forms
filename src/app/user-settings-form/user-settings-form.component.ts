@@ -33,7 +33,7 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
     this.dataService.postUserSettings(this.userSettings).subscribe(
       result => console.log('success',result),
       error => console.log('error',error)
-    )
+    );
   }
 
 }
