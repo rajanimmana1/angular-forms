@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserSettings } from '../data/userSettings'
+import { UserSettings } from '../data/userSettings';
+import { NgForm } from '@angular/forms';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-user-settings-form',
@@ -12,13 +14,21 @@ OriginaluserSettings: UserSettings = {
       defaultCheck1:true,
       interface:'dark',
       subscriptiontype:'Lifetime',
-      notes:'my best form'
+      notes:'my best form' 
 };
 
 userSettings: UserSettings = {...this.OriginaluserSettings}; 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onBlur(field:ngModel){
+    console.log('on blur:', field.valid)
+  }
+
+  onSubmit(form:NgForm){
+    console.log('in on onSubmit:', form.valid);
   }
 
 }
