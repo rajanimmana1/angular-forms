@@ -42,10 +42,16 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
 
   onSubmit(form:NgForm){
     console.log('in on onSubmit:', form.valid);
-    this.dataService.postUserSettings(this.userSettings).subscribe(
+    if(form.valid){
+       this.dataService.postUserSettings(this.userSettings).subscribe(
       result => console.log('success',result),
       error => this.onHttpError(error)
     );
+    }else{
+      this.postError = true;
+    this.postErrorMessage = "please fix above errors.."
+    }
+   
   }
 
 }
