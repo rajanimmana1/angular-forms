@@ -23,12 +23,12 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
 
   postError = false;
   postErrorMessage = '';
-  subscriptionTypes: Observable<string[]>;
+  subscriptiontypes: Observable<string[]>;
 
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
-   this.subscriptionTypes = this.dataService.getSubscriptionTypes();
+   this.subscriptiontypes = this.dataService.getSubscriptionTypes();
   }
 
   onHttpError(errorResponse:any){
