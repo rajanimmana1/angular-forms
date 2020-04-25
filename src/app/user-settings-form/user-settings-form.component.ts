@@ -19,10 +19,22 @@ OriginaluserSettings: UserSettings = {
 };
 
 userSettings: UserSettings = {...this.OriginaluserSettings}; 
+
+  postError = false;
+  postErrorMessage = '';
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
   }
+
+  onHttpError(errorResponse:any){
+    console.log('err:', errorResponse);
+    this.postError = true;
+    this.postErrorMessage = errorResponse.error.errorMessage;
+
+
+  }
+
 
   onBlur(field:NgModel){
     console.log('on blur:', field.valid)
@@ -32,7 +44,7 @@ userSettings: UserSettings = {...this.OriginaluserSettings};
     console.log('in on onSubmit:', form.valid);
     this.dataService.postUserSettings(this.userSettings).subscribe(
       result => console.log('success',result),
-      error => console.log('error',error)
+      error => this.onHttpError(error)
     );
   }
 
